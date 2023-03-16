@@ -9,13 +9,20 @@ const Shop = () => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
+    console.log("products load before fetch");
     fetch("products.json")
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, []);
+  }, [products]);
 
   useEffect(() => {
-    const storedCart = getStoredCart;
+    console.log("Local Storage first line");
+    const storedCart = getStoredCart();
+    for (const id in storedCart) {
+      const addedProduct = products.find((product) => product.id === id);
+      if (addedProduct) {
+      }
+    }
   }, []);
 
   const handleAddToCart = (product) => {
