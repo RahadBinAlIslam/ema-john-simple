@@ -9,10 +9,12 @@ const Shop = () => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    console.log("products load before fetch");
     fetch("products.json")
       .then((res) => res.json())
-      .then((data) => setProducts(data));
+      .then((data) => {
+        setProducts(data);
+        console.log("products loaded");
+      });
   }, []);
 
   useEffect(() => {
@@ -41,10 +43,10 @@ const Shop = () => {
     } else {
       const rest = cart.filter((product) => product.id !== selectedProduct.id);
       exists.quantity = exists.quantity + 1;
+      newCart = [...rest, exists];
     }
     setCart(newCart);
     addToDb(selectedProduct.id);
-    newCart = [...rest, exists];
   };
 
   return (
