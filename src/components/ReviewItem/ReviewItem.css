@@ -34,3 +34,8 @@
   background-color: rgba(235, 87, 87, 0.5);
   cursor: pointer;
 }
+
+.delete-icon {
+  color: #eb5757;
+  font-size: 31px;
+}

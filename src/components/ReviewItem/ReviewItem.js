@@ -15,6 +15,8 @@ const ReviewItem = ({ product, handleRemoveItem }) => {
           <p>{name}</p>
           <p>
             <small>Price: {price}</small>
+          </p>
+          <p>
             <small>Quantity: {quantity}</small>
           </p>
         </div>
